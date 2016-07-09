@@ -61,6 +61,7 @@ To get the code to start the tutorial from here run the following command:
 git checkout step0.
 ```
 First of all remove the sections we added in the previous step.
+
 Let's add bootstrap to our application as explined in http://getbootstrap.com adding
 ```html
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -91,12 +92,14 @@ style the table with bootstrap classes.
 <table class="table">
 ```
 create a custom css file in the app folder in order to give some margin to the table. E.g. 20% left, 20% right and 40px top.
+
 Don't forget to add it in the page HEAD!
 ```html
 <table class="table mytable">
 ```
 Now we have to initialize our app.
-create a javascript file in the app folder, import it in the page HEAD section and declare there your angular application
+
+Create a javascript file in the app folder, import it in the page HEAD section and declare there your angular application
 ```javascript
 var app = angular.module('demoApp', [
  	//module dependencies
