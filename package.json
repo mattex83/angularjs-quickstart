@@ -1,0 +1,19 @@
+{
+  "name": "angularjs-quickstart",
+  "version": "0.0.1",
+  "author": {
+    "name": "Matteo Parodi",
+    "email": "matteo.parodi@flairbit.io"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server ./ -a 0.0.0.0 -p 8010 -c-1"
+  }
+}
