@@ -21,16 +21,31 @@ localhost:8010/app
 * to switch between tutorial steps run from the project directory
 
 ```bash
-git checkout -b <step_name>.
+git checkout <step_name>.
+```
+##Step -1 ng-app and curly brackets
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step-1.
 ```
 
-The README of each step contains instructions and references to pass to the next level.
+In angularJS curly brackets are expression which are evaluated by the engine. You can put here variables, or operations.
+ng-app: identifies the angularjs app. There is only one of these tags in an application. 
+Everything is not in the container of ng-app iis not parsed by the angular engine. Usually is put in the body tag
 
-For instance, to get the void workspace:
-```bash
-git checkout -b step-1.
-```
-To get the angular hello world:
-```bash
-git checkout -b step0.
+The project at this step starts empty. There is just an hello world in plain html.
+
+First step add the angular library on the project. 
+https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js
+
+Then include these two sections: 
+```html
+<section>
+   <h1>Hello {{'Wor'+'ld'}} with no AngularJS</h1> 
+</section>
+
+<section ng-app>
+   <h1>Hello {{'Wor'+'ld'}} from AngularJS</h1> 
+</section> 
 ```
