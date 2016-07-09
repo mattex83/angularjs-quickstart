@@ -118,3 +118,25 @@ To get the code to start the tutorial from here run the following command:
 ```bash
 git checkout step1.
 ```
+
+replace the h1 tag with a div linked to a controller called MainController
+
+```html
+<h1>Hello {{'Wor'+'ld'}} from AngularJS</h1> 
+```
+```html
+<div ng-controller="MainCtrl as main">
+    <h1>{{main.title}}</h1>
+</div>
+```
+On your js file create the controller.
+```javascript
+var app = angular.module('demoApp', [
+    //module dependencies
+]);
+
+app.controller('MainCtrl', ['$scope', function($scope){
+    var me = this;
+    me.title="My Hello World"
+}])
+```
