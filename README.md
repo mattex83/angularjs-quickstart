@@ -111,3 +111,10 @@ finally add the ng-app tag specifying the name of your application in the body t
 ```html
 <body ng-app="demoApp">
 ```
+
+##Step 1 Add a simple controller in your application
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step1.
+```
