@@ -1,18 +1,34 @@
 <!doctype html>
 <html>
   <head>
-     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <link rel="stylesheet" href="demoApp.css">
+
+    <script src="demoApp.js"></script>
   </head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <body>
-    <section>
-      <h1>Hello {{'Wor'+'ld'}} with no AngularJS</h1> 
-    </section>
-
-    <section ng-app>
-      <h1>Hello {{'Wor'+'ld'}} from AngularJS</h1> 
-    </section> 
-  </body>
-  
+  <body ng-app="demoApp">
+    <h1>Hello {{'Wor'+'ld'}} from AngularJS</h1> 
+    <table class="table mytable">
+      <tr>
+        <th>Delete</th>
+        <th>Temperature</th>
+        <th>Timestamp</th> 
+      </tr>
+      <tr>
+        <td><button type="button" class="btn btn-default">x</button>
+        <td>24</td>
+        <td>25-06-2016</td> 
+      </tr>
+    </table>
   </body>
 </html>
