@@ -20,6 +20,8 @@ localhost:8010/app
 
 * to switch between tutorial steps run from the project directory
 
+You may edit the code from any text editor, but if you want to use Eclipse, just import the folder as existing project
+
 ```bash
 git checkout <step_name>.
 ```
