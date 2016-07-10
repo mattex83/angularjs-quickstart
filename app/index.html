@@ -20,17 +20,19 @@
     <div ng-controller="MainCtrl as main">
        <h1>{{main.title}}</h1>
     </div>
-    <table class="table mytable">
-      <tr>
-        <th>Delete</th>
-        <th>Temperature</th>
-        <th>Timestamp</th> 
-      </tr>
-      <tr>
-        <td><button type="button" class="btn btn-default">x</button>
-        <td>24</td>
-        <td>25-06-2016</td> 
-      </tr>
-    </table>
+    <div ng-controller="TableCtrl as table">
+      <table class="table mytable">
+        <tr>
+          <th>Delete</th>
+          <th>Temperature</th>
+          <th>Timestamp</th> 
+        </tr>
+        <tr ng-repeat="record in table.records">
+          <td><button type="button" class="btn btn-default">x</button>
+          <td>{{record.temperature}}</td>
+          <td>{{record.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</td> 
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

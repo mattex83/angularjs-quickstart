@@ -140,3 +140,18 @@ app.controller('MainCtrl', ['$scope', function($scope){
     me.title="My Hello World"
 }])
 ```
+##Step 2 Fill the table with static data and filters
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step2.
+```
+On your js file create a new controller called TableCtrl with an array of records.
+Each record must have the following structure:
+```javascript
+var record = {
+    timestamp: <millisecondsFromEpoch>
+    temperature: <aNumber>
+}
+```
+Modify the table in your index.html putting the new controller 'TableCtrl as table' and an ng-repeat closure to itereate the records collection
