@@ -155,3 +155,5 @@ var record = {
 }
 ```
 Modify the table in your index.html putting the new controller 'TableCtrl as table' and an ng-repeat closure to itereate the records collection
+
+Finally filter the timestamp to show the date following the format 'yyyy-MM-dd HH:mm:ss'
