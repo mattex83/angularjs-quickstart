@@ -111,6 +111,12 @@ finally add the ng-app tag specifying the name of your application in the body t
 ```html
 <body ng-app="demoApp">
 ```
+### Usefull Links
+* http://getbootstrap.com/css/#buttons
+
+* http://getbootstrap.com/css/#tables
+
+* https://docs.angularjs.org/api/ng/directive/ngApp
 
 ##Step 1 Add a simple controller in your application
 To get the code to start the tutorial from here run the following command:
@@ -158,9 +164,54 @@ Modify the table in your index.html putting the new controller 'TableCtrl as tab
 
 Finally filter the timestamp to show the date following the format 'yyyy-MM-dd HH:mm:ss'
 
+### Usefull Links
+* https://docs.angularjs.org/guide/controller
+
+* https://docs.angularjs.org/guide/filter
+
 ##Step 3 Create a form to log a new temperature and add a click handler on the table to remove records
 To get the code to start the tutorial from here run the following command:
 
 ```bash
 git checkout step3.
 ```
+1) Create a form element over the table. The form must contain an input field of type number and a button to submit the form.
+
+The div containing the form element must refer to a new controller called AddTemperatureCtrl
+```html
+ <div ng-controller="AddTemperatureCtrl as addTemp">
+
+        <form name="myForm" class="form mytable" ng-submit="addTemp.addValue()">
+            ...
+          </div>
+            
+        </form>
+    </div>
+```
+the button must be enabled only if the form is valid.
+
+The input field is valid only if a value is present and in the range -40 / 50.
+
+On javascript side the function linked to ng-submit will just log the new value on console (we cannot add values to another controller at the moment)
+
+2) create an handler for the delete button on table with ng-click. 
+On javascript side the function linked will just log the value we want to remove on console.
+
+3) try to put the input field and the add button in a row using the layouting system of bootstrap 
+
+```html
+<div class="row">              
+	<div class="col-md-8">  
+	…
+	</div>              
+	<div class="col-md-4">
+	…
+	</div>          
+</div>
+```
+### Usefull Links
+* https://docs.angularjs.org/guide/forms
+
+* http://getbootstrap.com/css/#forms
+
+* http://getbootstrap.com/css/#grid
