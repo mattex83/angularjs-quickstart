@@ -5,29 +5,84 @@
  		//module dependencies
  	]);
 
+	app.service('DataService', ['$log','$q', function($log, $q){
+ 		var service = {};
+
+ 		$log.info('DataService started');
+ 		
+ 		service.records =[];
+
+ 		service.getRecords = function(){
+			var deferred = $q.defer();
+ 			
+            deferred.resolve(service.records);
+                            
+            return deferred.promise;
+ 			
+ 		}
+
+ 		service.addRecord = function(data){
+ 			$log.info('add record');
+			var deferred = $q.defer();
+ 			
+ 			service.records.push(data);
+            deferred.resolve(data);
+                            
+            return deferred.promise;
+ 		}
+
+ 		service.deleteRecord = function(record){
+ 			$log.warn('removing record');
+			var deferred = $q.defer();
+ 			var selectedIndex = -1;
+ 			angular.forEach(service.records, function(value, index){
+ 				if(record.timestamp===value.timestamp){
+ 					selectedIndex=index;
+ 				}
+ 			});
+
+ 			if(selectedIndex!==-1){
+ 				service.records.splice(selectedIndex,1);
+				deferred.resolve();
+ 			}else{
+ 				$log.error('record not found');
+				 deferred.reject();
+ 			}
+                            
+            return deferred.promise;
+ 			
+ 		}
+
+
+ 		return service;
+ 	}]);
+
  	app.controller('MainCtrl', ['$scope', function($scope){
 		var me = this;
  		me.title="My Hello World"
  	}]);
 
-	 app.controller('TableCtrl', ['$scope','$log', function($scope,$log){
+	 app.controller('TableCtrl', ['$scope','$log','DataService', function($scope, $log, DataService){
 
  		var me = this;
  		me.records = [];
 
- 		var now = new Date();
- 		me.records.push({
- 			timestamp: now.getTime(),
- 			temperature: 23
- 		});
-
- 		me.records.push({
- 			timestamp: now.getTime()-3600000,
- 			temperature: 24
- 		});
+ 		DataService.getRecords()
+		.then( function( data ) {
+            me.records = data;
+        })
+        .catch(function( error ){
+            $log.error('getRecords Failed!');
+        });
 
 		me.deleteRecord = function(record){
- 			$log.info('removed record '+record.temperature);
+ 			DataService.deleteRecord(record)
+			.then( function( ) {
+				$log.info('record removed');
+			})
+			.catch(function( error ){
+				$log.error('record not removed');
+			});
  		}
 		
 
@@ -40,13 +95,26 @@
 
  	}]);
 
- 	app.controller('AddTemperatureCtrl', ['$scope','$log', function($scope,$log){
+ 	app.controller('AddTemperatureCtrl', ['$scope','$log','DataService', function($scope, $log, DataService){
 		var me = this;
- 		me.newTempValue = null;
- 		me.addValue = function(){
-			$log.info('added record '+me.newTempValue);
- 			me.newTempValue = null;
- 		}
+
+		this.newTempValue = null;
+		me.addValue = function () {
+			
+ 			var now = new Date();
+			DataService.addRecord({
+				temperature:this.newTempValue,
+				timestamp:now.getTime()
+			})
+			.then( function( ) {
+				$log.info('record added');
+			})
+			.catch(function( error ){
+				$log.error('record not added');
+			});
+
+			this.newTempValue = null;
+		};
  	}]);
 
 })();

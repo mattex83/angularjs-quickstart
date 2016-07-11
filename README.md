@@ -242,3 +242,25 @@ millis = date.getTime();
 ### Usefull Links
 
 * http://www.w3schools.com/html/html_form_input_types.asp
+
+##Step 5 Create a service to manage temperature data
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step5.
+```
+1) Create a new service called DataService containing 3 functions and a records array keeping the state of our data logger
+    * getRecords()
+    ** returning service.records
+    * addRecord({timestamp:<millisfromepoch>,temperature:<value>})
+    ** adding a new record into the service.records array
+    * deleteRecord(timestamp)
+    ** removing the item in service.records with the same timestamp
+
+2) Use DataService in TableCtrl and AddTemperatureCtrl to read, create and remove records. Remember to add the dependency properly.
+
+### Usefull Links
+
+* https://docs.angularjs.org/guide/services
+
+* https://docs.angularjs.org/api/ng/function/angular.forEach
