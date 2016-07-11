@@ -112,6 +112,8 @@ finally add the ng-app tag specifying the name of your application in the body t
 <body ng-app="demoApp">
 ```
 ### Usefull Links
+* http://www.w3schools.com/html/html_tables.asp
+
 * http://getbootstrap.com/css/#buttons
 
 * http://getbootstrap.com/css/#tables
@@ -169,6 +171,8 @@ Finally filter the timestamp to show the date following the format 'yyyy-MM-dd H
 
 * https://docs.angularjs.org/guide/filter
 
+* https://docs.angularjs.org/api/ng/filter/date
+
 ##Step 3 Create a form to log a new temperature and add a click handler on the table to remove records
 To get the code to start the tutorial from here run the following command:
 
@@ -217,3 +221,24 @@ On javascript side the function linked will just log the value we want to remove
 * http://getbootstrap.com/css/#grid
 
 * https://docs.angularjs.org/api/ng/service/$log
+
+##Step 4 Create a form to query the temperature table
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step4.
+```
+Create a form element into the div controlled by TableCtrl. 
+
+The form must contain two inputs field of type datetime-local.
+
+On javascript side the function linked with ng-submit will just log the two dates in milliseconds from epoch.
+
+To get milliseconds from a date object;
+
+```javascript
+millis = date.getTime();
+```
+### Usefull Links
+
+* http://www.w3schools.com/html/html_form_input_types.asp

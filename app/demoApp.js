@@ -29,7 +29,14 @@
 		me.deleteRecord = function(record){
  			$log.info('removed record '+record.temperature);
  		}
+		
 
+		me.sendQuery = function(){
+ 			var from = me.from;
+ 			var to = me.to;
+			$log.info('from '+from.getTime());
+			$log.info('to '+to.getTime());
+ 		}
 
  	}]);
 
