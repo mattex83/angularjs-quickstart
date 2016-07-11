@@ -188,7 +188,7 @@ The div containing the form element must refer to a new controller called AddTem
         </form>
     </div>
 ```
-the button must be enabled only if the form is valid.
+The submit button must be enabled only if the form is valid.
 
 The input field is valid only if a value is present and in the range -40 / 50.
 
