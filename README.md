@@ -257,10 +257,36 @@ git checkout step5.
     * deleteRecord(timestamp)
     ** removing the item in service.records with the same timestamp
 
-2) Use DataService in TableCtrl and AddTemperatureCtrl to read, create and remove records. Remember to add the dependency properly.
+Use $q service to make the service functions asynchronous even if now it seems to be useless. For instance
 
+```javascript
+service.getRecords = function(){
+    var deferred = $q.defer();
+    
+    deferred.resolve(service.records);
+                    
+    return deferred.promise;
+    
+}
+```
+
+2) Use DataService in TableCtrl and AddTemperatureCtrl to read, create and remove records. Remember to add the dependency properly.
+```javascript
+DataService.addRecord({
+    temperature:this.newTempValue,
+    timestamp:now.getTime()
+})
+.then( function( ) {
+    $log.info('record added');
+})
+.catch(function( error ){
+    $log.error('record not added');
+});
+```
 ### Usefull Links
 
 * https://docs.angularjs.org/guide/services
 
 * https://docs.angularjs.org/api/ng/function/angular.forEach
+
+* https://docs.angularjs.org/api/ng/service/$q
