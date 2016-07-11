@@ -215,3 +215,5 @@ On javascript side the function linked will just log the value we want to remove
 * http://getbootstrap.com/css/#forms
 
 * http://getbootstrap.com/css/#grid
+
+* https://docs.angularjs.org/api/ng/service/$log
