@@ -290,3 +290,42 @@ DataService.addRecord({
 * https://docs.angularjs.org/api/ng/function/angular.forEach
 
 * https://docs.angularjs.org/api/ng/service/$q
+
+##Step 6 connect to our server side 
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step6.
+```
+
+1) Use the $http service to get, post and delete data from the server
+
+* to get temperature records 
+** GET http://localhost:8080/data
+* to post a new temperature 
+** POST http://localhost:8080/data
+* to delete a temeprature record 
+** DELETE http://localhost:8080/data?timestamp=xxx
+
+Remember to update the service.records collection, otherwise your table will not get any update
+For istance:
+```javascript
+...
+$http.post('http://localhost:8080/data',data)
+.success(function () {
+    service.records.push(data);
+    deferred.resolve();
+})
+.error(function() {
+    deferred.reject();
+});  
+...
+```
+
+2) Add the query feature to our app!
+
+Just add the from and to parameters into the getRecords functions and pass them through the controller.
+
+### Usefull Links
+
+* https://docs.angularjs.org/api/ng/service/$http

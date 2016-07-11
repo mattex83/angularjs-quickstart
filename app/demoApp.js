@@ -12,45 +12,63 @@
  		
  		service.records =[];
 
- 		service.getRecords = function(){
-			var deferred = $q.defer();
- 			
-            deferred.resolve(service.records);
-                            
+ 		service.getRecords = function(from, to){
+ 			var deferred = $q.defer();
+ 			var params = {
+                
+            };
+            if(from && to){
+            	params.from=from;
+            	params.to=to;
+            }
+ 			$http.get('http://localhost:8080/data',{params:params})
+            .success(function (records) {
+                service.records = records;
+                deferred.resolve(records);
+            })
+            .error(function(response) {
+                deferred.reject(response);
+            });                
             return deferred.promise;
- 			
  		}
 
  		service.addRecord = function(data){
- 			$log.info('add record');
-			var deferred = $q.defer();
- 			
- 			service.records.push(data);
-            deferred.resolve(data);
-                            
+ 			var deferred = $q.defer();
+ 			$http.post('http://localhost:8080/data',data)
+            .success(function () {
+                service.records.push(data);
+                deferred.resolve();
+            })
+            .error(function() {
+                deferred.reject();
+            });                
             return deferred.promise;
  		}
 
  		service.deleteRecord = function(record){
  			$log.warn('removing record');
-			var deferred = $q.defer();
- 			var selectedIndex = -1;
- 			angular.forEach(service.records, function(value, index){
- 				if(record.timestamp===value.timestamp){
- 					selectedIndex=index;
- 				}
- 			});
+ 			var deferred = $q.defer();
+ 			$http.delete('http://localhost:8080/data?timestamp='+record.timestamp)
+ 			.success(function () {
+ 				var records = service.records;
+                var selectedIndex = -1;
+	 			angular.forEach(records, function(value, index){
+	 				if(record.timestamp===value.timestamp){
+	 					selectedIndex=index;
+	 				}
+	 			});
 
- 			if(selectedIndex!==-1){
- 				service.records.splice(selectedIndex,1);
-				deferred.resolve();
- 			}else{
- 				$log.error('record not found');
-				 deferred.reject();
- 			}
-                            
+	 			if(selectedIndex!==-1){
+	 				records.splice(selectedIndex,1);
+	 			}else{
+	 				$log.error('record not found');
+	 			}
+                deferred.resolve();
+            })
+            .error(function() {
+                deferred.reject();
+            }); 
             return deferred.promise;
- 			
  		}
 
 
