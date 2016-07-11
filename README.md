@@ -157,3 +157,10 @@ var record = {
 Modify the table in your index.html putting the new controller 'TableCtrl as table' and an ng-repeat closure to itereate the records collection
 
 Finally filter the timestamp to show the date following the format 'yyyy-MM-dd HH:mm:ss'
+
+##Step 3 Create a form to log a new temperature and add a click handler on the table to remove records
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step3.
+```

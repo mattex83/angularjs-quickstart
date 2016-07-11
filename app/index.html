@@ -20,6 +20,21 @@
     <div ng-controller="MainCtrl as main">
        <h1>{{main.title}}</h1>
     </div>
+    <div ng-controller="AddTemperatureCtrl as addTemp">
+
+        <form name="myForm" class="form mytable" ng-submit="addTemp.addValue()">
+            <div class="row">
+              <div class="col-md-8">
+                <input type="number" ng-model="addTemp.newTempValue" name="newTempValue" placeholder="Add a New Temperature" class="form-control col-md-4"
+                        min="-40" max="60" required/>
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary col-md-4" ng-disabled="myForm.$invalid">Add</button>
+              </div>
+          </div>
+            
+        </form>
+    </div>
     <div ng-controller="TableCtrl as table">
       <table class="table mytable">
         <tr>
@@ -28,7 +43,7 @@
           <th>Timestamp</th> 
         </tr>
         <tr ng-repeat="record in table.records">
-          <td><button type="button" class="btn btn-default">x</button>
+          <td><button type="button" class="btn btn-default" ng-click="table.deleteRecord(record)">x</button>
           <td>{{record.temperature}}</td>
           <td>{{record.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</td> 
         </tr>
