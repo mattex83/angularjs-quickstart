@@ -5,7 +5,7 @@
  		//module dependencies
  	]);
 
-	app.service('DataService', ['$log','$q', function($log, $q){
+	app.service('DataService', ['$log','$q', '$http', function($log, $q, $http){
  		var service = {};
 
  		$log.info('DataService started');
