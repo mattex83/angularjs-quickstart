@@ -109,6 +109,13 @@
  			var to = me.to;
 			$log.info('from '+from.getTime());
 			$log.info('to '+to.getTime());
+			DataService.getRecords(from.getTime(),to.getTime())
+			.then( function( data ) {
+	            me.records = data;
+	        })
+	        .catch(function( error ){
+	            $log.error('getRecords Failed!');
+	        });
  		}
 
  	}]);
