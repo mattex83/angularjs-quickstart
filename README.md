@@ -20,16 +20,18 @@ localhost:8010/app
 
 * to switch between tutorial steps run from the project directory
 
-You may edit the code from any text editor, but if you want to use Eclipse, just import the folder as existing project
 
 ```bash
-git checkout <step_name>.
+git checkout <step_name>
 ```
+
+You may edit the code from any text editor, but if you want to use Eclipse, just import the folder as existing project
+
 ##Step -1 ng-app and curly brackets
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step-1.
+git checkout step-1
 ```
 
 In angularJS curly brackets are expression which are evaluated by the engine. You can put here variables, or operations.
@@ -60,7 +62,7 @@ Play with the content of curly brackets to make operation with numbers or string
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step0.
+git checkout step0
 ```
 First of all remove the sections we added in the previous step.
 
@@ -124,7 +126,7 @@ finally add the ng-app tag specifying the name of your application in the body t
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step1.
+git checkout step1
 ```
 
 replace the h1 tag with a div linked to a controller called MainController
@@ -152,7 +154,7 @@ app.controller('MainCtrl', ['$scope', function($scope){
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step2.
+git checkout step2
 ```
 On your js file create a new controller called TableCtrl with an array of records.
 Each record must have the following structure:
@@ -177,7 +179,7 @@ Finally filter the timestamp to show the date following the format 'yyyy-MM-dd H
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step3.
+git checkout step3
 ```
 1) Create a form element over the table. The form must contain an input field of type number and a button to submit the form.
 
@@ -226,7 +228,7 @@ On javascript side the function linked will just log the value we want to remove
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step4.
+git checkout step4
 ```
 Create a form element into the div controlled by TableCtrl. 
 
@@ -247,7 +249,7 @@ millis = date.getTime();
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step5.
+git checkout step5
 ```
 1) Create a new service called DataService containing 3 functions and a records array keeping the state of our data logger
     * getRecords()
@@ -295,7 +297,7 @@ DataService.addRecord({
 To get the code to start the tutorial from here run the following command:
 
 ```bash
-git checkout step6.
+git checkout step6
 ```
 
 1) Use the $http service to get, post and delete data from the server
