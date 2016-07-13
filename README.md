@@ -11,11 +11,12 @@ To start this tutorial on your local computer do from your command line
 ```bash
 git clone https://github.com/mattex83/angularjs-quickstart
 cd angularjs-quickstart
+git checkout step-1
 npm install
 npm start
 ```
 
-* The application we will finally develop will be available on
+* Once npm start command is running, the application will be available on
 localhost:8010/app
 
 * to switch between tutorial steps run from the project directory
@@ -23,6 +24,11 @@ localhost:8010/app
 
 ```bash
 git checkout <step_name>
+```
+
+If you want to see how the application will be at the end of the tutorial checkout the master branch
+```bash
+git checkout master
 ```
 
 You may edit the code from any text editor, but if you want to use Eclipse, just import the folder as existing project
