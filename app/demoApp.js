@@ -5,7 +5,7 @@
  		//module dependencies
  	]);
 
-	app.service('DataService', ['$log','$q', function($log, $q){
+	app.service('DataService', ['$log','$q','$timeout', function($log, $q, $timeout){
  		var service = {};
 
  		$log.info('DataService started');
@@ -14,8 +14,9 @@
 
  		service.getRecords = function(){
 			var deferred = $q.defer();
- 			
-            deferred.resolve(service.records);
+ 			$timeout(function(){	 
+            	deferred.resolve(service.records);
+			},1000);
                             
             return deferred.promise;
  			
@@ -24,9 +25,10 @@
  		service.addRecord = function(data){
  			$log.info('add record');
 			var deferred = $q.defer();
- 			
- 			service.records.push(data);
-            deferred.resolve(data);
+ 			$timeout(function(){	 
+ 				service.records.push(data);
+            	deferred.resolve(data);
+			},1000);
                             
             return deferred.promise;
  		}
@@ -41,13 +43,16 @@
  				}
  			});
 
- 			if(selectedIndex!==-1){
- 				service.records.splice(selectedIndex,1);
-				deferred.resolve();
- 			}else{
- 				$log.error('record not found');
-				 deferred.reject();
- 			}
+			$timeout(function(){	 
+ 				if(selectedIndex!==-1){
+					service.records.splice(selectedIndex,1);
+					deferred.resolve();
+				}else{
+					$log.error('record not found');
+					deferred.reject();
+				}
+			},1000);
+ 			
                             
             return deferred.promise;
  			
