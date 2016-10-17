@@ -17,7 +17,7 @@ npm start
 ```
 
 * Once npm start command is running, the application will be available on
-localhost:8010/app
+localhost:8080/app
 
 * to switch between tutorial steps run from the project directory
 
