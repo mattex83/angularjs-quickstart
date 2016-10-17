@@ -1,0 +1,21 @@
+{
+  "name": "angularjs-quickstart",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --debug server.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.0",
+    "cookie-parser": "~1.4.1",
+    "cors": "^2.7.1",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-jwt": "^3.3.0",
+    "moment": "^2.13.0",
+    "morgan": "~1.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
