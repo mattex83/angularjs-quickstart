@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/app',express.static('../app'));
+app.use('/test',express.static('../test'));
 
 var port = 8080;
 
