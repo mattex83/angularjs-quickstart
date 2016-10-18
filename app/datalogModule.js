@@ -141,6 +141,7 @@
 			})
 			.then( function( ) {
 				$log.info('record added');
+				$state.go('table');
 			})
 			.catch(function( error ){
 				$log.error('record not added');
