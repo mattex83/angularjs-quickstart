@@ -315,7 +315,7 @@ git checkout step6
 * to delete a temeprature record 
 ** DELETE http://localhost:8080/data?timestamp=xxx
 
-Remember to update the service.records collection, otherwise your table will not get any update
+**Remember to update the service.records collection, otherwise your table will not get any update**
 For istance:
 ```javascript
 ...
@@ -337,3 +337,24 @@ Just add the from and to parameters into the getRecords functions and pass them 
 ### Usefull Links
 
 * https://docs.angularjs.org/api/ng/service/$http
+
+
+##Step 7 Create a new module
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step7
+```
+
+Let’s change our application structure creating a module with our service and our controllers.
+
+1) Create a file called datalogModule.js where we move our code.
+
+2) Add the module dependency to our app
+
+**Remember to add the new js file to index.html**
+
+### Usefull Links
+
+* https://docs.angularjs.org/guide/module
+
