@@ -271,7 +271,10 @@ Use $q service to make the service functions asynchronous even if now it seems t
 service.getRecords = function(){
     var deferred = $q.defer();
     
-    deferred.resolve(service.records);
+    $timeout(function(){	 
+    	deferred.resolve(service.records);
+    },1000);
+
                     
     return deferred.promise;
     
