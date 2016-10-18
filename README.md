@@ -371,3 +371,56 @@ var app = angular.module('demoApp', ['datalogModule']);
 
 * https://docs.angularjs.org/guide/module
 
+##Step 8 Add routing
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step8
+```
+Let's add routing feature to our application.
+Our goal is to split the application content in two pages:
+* One with the table.
+* One with the addTemperature form.
+
+We have also to create navigation buttons to switch between them.
+
+1) Add JS dependency on index.html
+```html
+<script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
+```
+
+2) Add **ui.router** module dependency to our **demoApp** module
+
+3) Create a pages folder on the app root where we will put our pages
+* Create a table.html file with just the table and the query panel.
+* Create a add.html file with the form which add a temperature.
+
+4) In the app config() callback configure the $stateProvider to manage 2 states:
+* ‘table’
+* ’add’
+```javascript
+app.config(function($stateProvider){
+	$stateProvider
+	.state('table', {
+		url:'/table',
+		templateUrl:'pages/table.html'
+	});
+});
+```
+
+
+5) To initialize the router properly in the app run() callback: go to the ’table’ state
+```javascript
+app.run(function($state){
+	$state.go('table');
+});
+```
+6) In the table.html page put a new button. Clicking on the button will bring to the ‘add’ state.
+
+7) In the add.html put a back button (bringing to ‘table’ state). 
+* If you are confident try to go to the ‘table’ state when a new record is added.
+
+8) Add the ui-view tag on the div which is where navigation content is loaded
+```html
+<ui-view></ui-view>
+```
