@@ -424,3 +424,37 @@ app.run(function($state){
 ```html
 <ui-view></ui-view>
 ```
+
+##Step 9 Add unit tests
+To get the code to start the tutorial from here run the following command:
+
+```bash
+git checkout step9
+```
+
+Add a simple unit test with the jasmine scaffolded project you'll find in /test.
+Write a specs.js file containing a test for the AddTemperatureCtrl controller.
+The test will check if the DataService.addRecord function is called while executing the controller.addValue function.
+
+Use
+```javascript
+beforeEach(module('datalogModule'));
+```
+to load your module before each test case
+
+use 
+```javascript
+DataService = jasmine.createSpyObj('DataService', ['addRecord']);
+```
+to mock your service
+
+use 
+
+```javascript
+DataService.addRecord.and.callFake(function() {
+    var deferred = q.defer();
+    deferred.resolve();
+    return deferred.promise;
+});
+```
+to mock your function.
