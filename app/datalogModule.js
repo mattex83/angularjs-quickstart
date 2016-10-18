@@ -136,7 +136,7 @@
 			
  			var now = new Date();
 			DataService.addRecord({
-				temperature:this.newTempValue,
+				temperature:me.newTempValue,
 				timestamp:now.getTime()
 			})
 			.then( function( ) {
@@ -147,7 +147,7 @@
 				$log.error('record not added');
 			});
 
-			this.newTempValue = null;
+			me.newTempValue = null;
 		};
  	}]);
 
