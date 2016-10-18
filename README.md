@@ -350,8 +350,18 @@ Let’s change our application structure creating a module with our service and 
 
 1) Create a file called datalogModule.js where we move our code.
 
-2) Add the module dependency to our app
+```javascript
+var mod = angular.module("datalogModule",[]); 
 
+mod.controller("myController",function () {
+…
+}); 
+```
+
+2) Add the module dependency to our app
+```javascript
+var app = angular.module('demoApp', ['datalogModule']);
+```
 **Remember to add the new js file to index.html**
 
 ### Usefull Links
