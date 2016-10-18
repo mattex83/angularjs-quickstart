@@ -1,0 +1,28 @@
+<div ng-controller="TableCtrl as table">
+    <button type="button" class="btn btn-primary mytable" ng-click="table.goToAddPage()" >Add a new value</button>
+    <form class="form mytable" ng-submit="table.sendQuery()">
+        <div class="row">
+        <div class="col-md-4">
+            <input type="datetime-local" ng-model="table.from" name="from" class="form-control"/>
+        </div>
+        <div class="col-md-4">
+            <input type="datetime-local" ng-model="table.to" name="to" class="form-control"/>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">OK</button>
+        </div>
+        </div>
+    </form>
+    <table class="table mytable">
+    <tr>
+        <th>Delete</th>
+        <th>Temperature</th>
+        <th>Timestamp</th> 
+    </tr>
+    <tr ng-repeat="record in table.records">
+        <td><button type="button" class="btn btn-default" ng-click="table.deleteRecord(record)">x</button>
+        <td>{{record.temperature}}</td>
+        <td>{{record.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</td> 
+    </tr>
+    </table>
+</div>

@@ -1,0 +1,18 @@
+<div ng-controller="AddTemperatureCtrl as addTemp">
+    
+    <form name="myForm" class="form mytable" ng-submit="addTemp.addValue()">
+        <div class="row">
+            <div class=" col-md-2">
+                <button type="button" class="btn btn-default  col-md-12" ng-click="addTemp.goToTablePage()" >Cancel</button>
+            </div>
+            <div class="col-md-8">
+            <input type="number" ng-model="addTemp.newTempValue" name="newTempValue" placeholder="Add a New Temperature" class="form-control col-md-4"
+                    min="-40" max="60" required/>
+            </div>
+            <div class=" col-md-2">
+                <button type="submit" class="btn btn-primary col-md-12" ng-disabled="myForm.$invalid">Add</button>
+            </div>
+        </div>
+        
+    </form>
+</div>

@@ -78,7 +78,7 @@
  		me.title="My Hello World"
  	}]);
 
-	 mod.controller('TableCtrl', ['$scope','$log','DataService', function($scope, $log, DataService){
+	 mod.controller('TableCtrl', ['$scope','$log','DataService','$state', function($scope, $log, DataService, $state){
 
  		var me = this;
  		me.records = [];
@@ -100,6 +100,10 @@
 				$log.error('record not removed');
 			});
  		}
+
+		me.goToAddPage = function(){
+			$state.go('add');
+		}
 		
 
 		me.sendQuery = function(){
@@ -118,10 +122,16 @@
 
  	}]);
 
- 	mod.controller('AddTemperatureCtrl', ['$scope','$log','DataService', function($scope, $log, DataService){
+ 	mod.controller('AddTemperatureCtrl', ['$scope','$log','DataService','$state', 
+	 	function($scope, $log, DataService, $state){
 		var me = this;
 
 		this.newTempValue = null;
+
+		me.goToTablePage = function(){
+			$state.go('table');
+		}
+
 		me.addValue = function () {
 			
  			var now = new Date();

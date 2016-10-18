@@ -11,7 +11,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="http://unpkg.com/angular-ui-router@latest/release/angular-ui-router.min.js"></script>
+
     <link rel="stylesheet" href="demoApp.css">
 
     <script src="datalogModule.js"></script>
@@ -22,47 +23,8 @@
     <div ng-controller="MainCtrl as main">
        <h1>{{main.title}}</h1>
     </div>
-    <div ng-controller="AddTemperatureCtrl as addTemp">
-
-        <form name="myForm" class="form mytable" ng-submit="addTemp.addValue()">
-            <div class="row">
-              <div class="col-md-8">
-                <input type="number" ng-model="addTemp.newTempValue" name="newTempValue" placeholder="Add a New Temperature" class="form-control col-md-4"
-                        min="-40" max="60" required/>
-              </div>
-              <div class="col-md-4">
-                <button type="submit" class="btn btn-primary col-md-4" ng-disabled="myForm.$invalid">Add</button>
-              </div>
-          </div>
-            
-        </form>
-    </div>
-    <div ng-controller="TableCtrl as table">
-      <form class="form mytable" ng-submit="table.sendQuery()">
-          <div class="row">
-            <div class="col-md-4">
-              <input type="datetime-local" ng-model="table.from" name="from" class="form-control"/>
-            </div>
-            <div class="col-md-4">
-              <input type="datetime-local" ng-model="table.to" name="to" class="form-control"/>
-            </div>
-            <div class="col-md-2">
-              <button type="submit" class="btn btn-primary">OK</button>
-            </div>
-          </div>
-      </form>
-      <table class="table mytable">
-        <tr>
-          <th>Delete</th>
-          <th>Temperature</th>
-          <th>Timestamp</th> 
-        </tr>
-        <tr ng-repeat="record in table.records">
-          <td><button type="button" class="btn btn-default" ng-click="table.deleteRecord(record)">x</button>
-          <td>{{record.temperature}}</td>
-          <td>{{record.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</td> 
-        </tr>
-      </table>
-    </div>
+    <ui-view>
+      <!-- navigation content goes here-->
+    </ui-view>
   </body>
 </html>
