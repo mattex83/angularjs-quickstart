@@ -12,6 +12,7 @@ To start this tutorial on your local computer do from your command line
 git clone https://github.com/mattex83/angularjs-quickstart
 cd angularjs-quickstart
 git checkout step-1
+cd server
 npm install
 npm start
 ```
