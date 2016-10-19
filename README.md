@@ -288,11 +288,22 @@ git checkout step5
 ```
 1) Create a new service called DataService containing 3 functions and a records array keeping the state of our data logger
     * getRecords()
-    ** returning service.records
+    * returning service.records
     * addRecord({timestamp:<millisfromepoch>,temperature:<value>})
-    ** adding a new record into the service.records array
+    * adding a new record into the service.records array
     * deleteRecord(timestamp)
-    ** removing the item in service.records with the same timestamp
+    * removing the item in service.records with the same timestamp
+  
+```javascript 
+app.service('DataService', ['$log', function($log){ 
+	var service = {}; 			
+	service.getRecords = function(){
+		//do your stuff
+	} 		
+	return service;
+}])
+
+```
 
 Use $q service to make the service functions asynchronous even if now it seems to be useless. For instance
 
