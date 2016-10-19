@@ -218,7 +218,11 @@ On javascript side the function linked to ng-submit will just log the new value 
 
 2) create an handler for the delete button on table with ng-click. 
 On javascript side the function linked will just log the value we want to remove on console.
-
+```javascript
+me.deleteRecord = function(record){
+	$log.info('removed record '+record.temperature);
+}
+```
 3) try to put the input field and the add button in a row using the layouting system of bootstrap 
 
 ```html
@@ -230,6 +234,21 @@ On javascript side the function linked will just log the value we want to remove
 	…
 	</div>          
 </div>
+```
+
+```html
+<form name="myForm" class="form mytable" ng-submit="addTemp.addValue()">
+    <div class="row">
+      <div class="col-md-8">
+	<input type="number" ng-model="addTemp.newTempValue" name="newTempValue" placeholder="Add a New Temperature" class="form-control col-md-4"
+		min="-40" max="60" required/>
+      </div>
+      <div class="col-md-4">
+	<button type="submit" class="btn btn-primary col-md-4" ng-disabled="myForm.$invalid">Add</button>
+      </div>
+  </div>
+
+</form>
 ```
 ### Usefull Links
 * https://docs.angularjs.org/guide/forms
