@@ -173,6 +173,15 @@ var record = {
 ```
 Modify the table in your index.html putting the new controller 'TableCtrl as table' and an ng-repeat closure to itereate the records collection
 
+```html
+<tr ng-repeat="record in table.records">
+  <td><button type="button" class="btn btn-default">x</button>
+  <td>{{record.temperature}}</td>
+  <td>{{record.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</td> 
+</tr>
+```
+
+
 Finally filter the timestamp to show the date following the format 'yyyy-MM-dd HH:mm:ss'
 
 ### Usefull Links
